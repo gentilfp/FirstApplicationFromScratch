@@ -1,0 +1,23 @@
+<br/>
+<p>
+  <b>Our List of posts</b>
+</p>
+
+<%= link_to "New Post", new_post_path %><br/><br/>
+
+<% @posts.each do |p| %>
+  <b><%= p.title %></b><br/>
+  <%= p.text.truncate(150) %><br/>
+  <% if p.visible? %>
+    <p>Visible: true</p>
+  <% else %>
+    <p>Visible: false</p>
+  <% end %>
+  <p> Date: <%= p.date %></p>
+  <%= link_to "Show", p %>
+  <%= link_to "Edit", edit_post_path(p) %>
+  <%= link_to "Delete", p, :method => :delete %>
+  <br/>
+<% end %>
+    
+  
